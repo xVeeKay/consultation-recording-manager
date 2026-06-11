@@ -1,6 +1,7 @@
 import express from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser"
+import errorHandler from "./middlewares/error.middleware"
 
 
 const app=express()
@@ -19,4 +20,7 @@ app.get("/health",(req,res)=>{
     })
 })
 
+
+
+app.use(errorHandler)
 export default app
