@@ -13,7 +13,6 @@ const cookieOptions={
 
 export const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.validatedData.body;
-  console.log("here")
   const existingUser = await User.findOne({ email });
   if (existingUser) {
     throw new ApiError(400, "User already exists");
@@ -51,3 +50,10 @@ export const logoutUser=asyncHandler(async(req,res)=>{
         new ApiResponse(200,{},"Logout Successfull")
     )
 })
+
+export const getCurrentUser=asyncHandler(async(req,res)=>{
+  return res.status(200).json(
+    new ApiResponse(200,req.user,"Current User Fetched")
+  )
+})
+
