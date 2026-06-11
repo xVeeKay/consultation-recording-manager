@@ -1,4 +1,4 @@
-import ApiError from "../utils/ApiError";
+import ApiError from "../utils/ApiError.js"
 
 const errorHandler=(err,req,res,next)=>{
     if(err instanceof ApiError){
@@ -10,7 +10,7 @@ const errorHandler=(err,req,res,next)=>{
     }
     return res.status(500).json({
         success:false,
-        message:"Internal Server Error"
+        message:err.message || "Internal Server Error"
     })
 }
 

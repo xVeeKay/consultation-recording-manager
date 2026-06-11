@@ -1,7 +1,8 @@
 import express from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser"
-import errorHandler from "./middlewares/error.middleware"
+import errorHandler from "./middlewares/error.middleware.js"
+import authRoutes from "./routes/auth.routes.js"
 
 
 const app=express()
@@ -19,6 +20,7 @@ app.get("/health",(req,res)=>{
         message:"Server working perfectly"
     })
 })
+app.use("/api/v1/auth",authRoutes)
 
 
 
