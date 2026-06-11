@@ -30,7 +30,27 @@ export const createConsultation=asyncHandler(async(req,res)=>{
 })
 
 export const getConsultations=asyncHandler(async(req,res)=>{
-    const consultations=await Consultation.find({astrologerId:req.user._is}).populate("customerId","name phone").sort({createdAt:-1})
+    const search=req.query.search || ""
+    const query = {
+      astrologerId: req.user._is,
+    };
+    if(search){
+        query.$or=[
+            {
+                title:{
+                    $regex:search,
+                    $options:"i"
+                }
+            },
+            {
+                notes:{
+                    $regex:search,
+                    $options:"i"
+                }
+            }
+        ]
+    }
+    const consultations=await Consultation.find(query).populate("customerId","name phone").sort({createdAt:-1})
     return res
       .status(200)
       .json(

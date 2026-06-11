@@ -5,6 +5,7 @@ import errorHandler from "./middlewares/error.middleware.js"
 import authRoutes from "./routes/auth.routes.js"
 import customerRoutes from "./routes/customer.routes.js"
 import consultationRoutes from "./routes/consultation.routes.js"
+import dashboardRoutes from "./routes/dashboard.routes.js"
 
 
 const app=express()
@@ -25,6 +26,7 @@ app.get("/health",(req,res)=>{
 app.use("/api/v1/auth",authRoutes)
 app.use("/api/v1/customers",customerRoutes)
 app.use("/api/v1/consultations", consultationRoutes);
+app.use("/api/v1/dashboard", dashboardRoutes);
 
 
 

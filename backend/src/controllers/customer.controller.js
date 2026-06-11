@@ -20,7 +20,17 @@ export const createCustomer=asyncHandler(async(req,res)=>{
 })
 
 export const getAllCustomers=asyncHandler(async(req,res)=>{
-    const customers=await Customer.find({astrologerId:req.user._id}).sort({createdAt:-1})
+    const search=req.query.search || ""
+    const query = {
+      astrologerId: req.user._id,
+    }
+    if(search){
+        query.name={
+            $regex:search,
+            $options:"i"
+        }
+    }
+    const customers = await Customer.find(query).sort({ createdAt: -1 });
     return res.status(200).json(
         new ApiResponse(200,customers,"Customers fetched successfully")
     )
