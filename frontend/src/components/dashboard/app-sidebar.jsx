@@ -32,12 +32,17 @@ export function AppSidebar({ ...props }) {
       <SidebarHeader>
         <div className="flex items-center justify-between px-2 py-2">
           {/* Branding Link */}
-          <Link to="/dashboard" className="flex items-center gap-3 min-w-0 group">
-
+          <Link
+            to="/dashboard"
+            className="flex items-center gap-3 min-w-0 group"
+          >
             {/* Logo Container: Using background tint for high-end minimal aesthetic */}
-            <div className="flex aspect-square size-9 shrink-0 items-center justify-center rounded-lg bg-amber-500/10 border border-amber-500/20 shadow-sm transition-colors group-hover:border-amber-500/40">
+            {/* Logo Container */}
+            <div className="flex aspect-square size-9 shrink-0 items-center justify-center rounded-lg bg-amber-500/10 border border-amber-500/20 shadow-sm transition-colors group-hover:border-amber-500/40 overflow-hidden">
+              {" "}
+              {/* 👈 Added overflow-hidden */}
               <img
-                src="/mainLogo.png"
+                src="/favicon.png"
                 alt="AstroLedger Logo"
                 className="w-full h-full object-contain p-1"
               />

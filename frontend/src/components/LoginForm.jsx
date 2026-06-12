@@ -55,7 +55,7 @@ export function LoginForm({
       const res = await apiFetch("/auth/login", {
         method: "POST",
         body: { email, password },
-      }); 
+      });
 
       setUser(res.data.user);
 
@@ -132,12 +132,12 @@ export function LoginForm({
               <Field>
                 <div className="flex items-center">
                   <FieldLabel htmlFor="password">Password</FieldLabel>
-                  <a
+                  {/* <a
                     href="#"
                     className="ml-auto text-sm underline-offset-4 hover:underline"
                   >
                     Forgot your password?
-                  </a>
+                  </a> */}
                 </div>
                 <Input id="password" type="password" required onChange={(e)=>setPassword(e.target.value)}/>
               </Field>
@@ -152,8 +152,8 @@ export function LoginForm({
         </CardContent>
       </Card>
       <FieldDescription className="px-6 text-center">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
-        and <a href="#">Privacy Policy</a>.
+        By clicking continue, you agree to our Terms of Service{" "}
+        and Privacy Policy.
       </FieldDescription>
     </div>
   )

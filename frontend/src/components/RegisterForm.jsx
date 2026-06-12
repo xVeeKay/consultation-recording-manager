@@ -90,11 +90,9 @@ export function RegisterForm({
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       {error.showAlert && (
         <Alert variant={error.type} className="max-w-md">
-          {error.type=="default" ?<CheckCircle2Icon/>:<AlertCircleIcon />}
+          {error.type == "default" ? <CheckCircle2Icon /> : <AlertCircleIcon />}
           <AlertTitle>{error.title}</AlertTitle>
-          <AlertDescription>
-            {error.description}
-          </AlertDescription>
+          <AlertDescription>{error.description}</AlertDescription>
         </Alert>
       )}
       <Card>
@@ -109,7 +107,15 @@ export function RegisterForm({
             <FieldGroup>
               <Field>
                 <FieldLabel htmlFor="name">Full Name</FieldLabel>
-                <Input id="name" type="text" placeholder="John Doe" required onChange={(e)=>{setName(e.target.value)}}/>
+                <Input
+                  id="name"
+                  type="text"
+                  placeholder="John Doe"
+                  required
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
+                />
               </Field>
               <Field>
                 <FieldLabel htmlFor="email">Email</FieldLabel>
@@ -118,20 +124,36 @@ export function RegisterForm({
                   type="email"
                   placeholder="m@example.com"
                   required
-                  onChange={(e)=>{setEmail(e.target.value)}}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                 />
               </Field>
               <Field>
                 <Field className="grid grid-cols-2 gap-4">
                   <Field>
                     <FieldLabel htmlFor="password">Password</FieldLabel>
-                    <Input id="password" type="password" required onChange={(e)=>{setPassword(e.target.value)}}/>
+                    <Input
+                      id="password"
+                      type="password"
+                      required
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                      }}
+                    />
                   </Field>
                   <Field>
                     <FieldLabel htmlFor="confirm-password">
                       Confirm Password
                     </FieldLabel>
-                    <Input id="confirm-password" type="password" required onChange={(e)=>{setConfirmPassword(e.target.value)}}/>
+                    <Input
+                      id="confirm-password"
+                      type="password"
+                      required
+                      onChange={(e) => {
+                        setConfirmPassword(e.target.value);
+                      }}
+                    />
                   </Field>
                 </Field>
                 <FieldDescription>
@@ -140,8 +162,8 @@ export function RegisterForm({
               </Field>
               <Field>
                 <Button type="submit" disabled={loading}>
-                  {loading && <SpinnerCustom/>}
-                  {loading ? "Creating Account...": "Create Account"}
+                  {loading && <SpinnerCustom />}
+                  {loading ? "Creating Account..." : "Create Account"}
                 </Button>
                 <FieldDescription className="text-center">
                   Already have an account? <Link to="/login">Sign in</Link>
@@ -152,9 +174,9 @@ export function RegisterForm({
         </CardContent>
       </Card>
       <FieldDescription className="px-6 text-center">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
-        and <a href="#">Privacy Policy</a>.
+        By clicking continue, you agree to our Terms of Service and Privacy
+        Policy.
       </FieldDescription>
     </div>
-  )
+  );
 }

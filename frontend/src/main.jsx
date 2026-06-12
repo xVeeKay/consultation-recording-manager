@@ -9,7 +9,7 @@ import { Toaster } from 'sonner'
 
 createRoot(document.getElementById("root")).render(
     <AuthProvider>
-      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+      <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
         <TooltipProvider>
           <Toaster/>
           <App />
