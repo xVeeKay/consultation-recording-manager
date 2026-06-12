@@ -6,7 +6,7 @@ import Register from './pages/auth/Register.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import Customers from './pages/Customers.jsx';
 import Consultations from './pages/Consultations.jsx';
-import Recordings from './pages/recordings.jsx';
+import Recordings from './pages/Recordings.jsx';
 // import reactLogo from './assets/react.svg'
 // import viteLogo from './assets/vite.svg'
 // import heroImg from './assets/hero.png'
