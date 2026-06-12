@@ -47,10 +47,11 @@ function App() {
           path="/recordings"
           element={
             <ProtectedRoutes>
-              <Recordings/>
+              <Recordings />
             </ProtectedRoutes>
           }
         />
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>
   );
