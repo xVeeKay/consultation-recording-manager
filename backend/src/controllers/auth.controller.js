@@ -46,6 +46,7 @@ export const loginUser = asyncHandler(async (req, res) => {
 });
 
 export const logoutUser=asyncHandler(async(req,res)=>{
+  console.log("Reached controller")
     return res.status(200).clearCookie("token",cookieOptions).json(
         new ApiResponse(200,{},"Logout Successfull")
     )
@@ -56,4 +57,3 @@ export const getCurrentUser=asyncHandler(async(req,res)=>{
     new ApiResponse(200,req.user,"Current User Fetched")
   )
 })
-

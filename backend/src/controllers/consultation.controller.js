@@ -4,6 +4,7 @@ import { Consultation } from "../models/Consultation.model.js";
 import asyncHandler from "../utils/asyncHandler.js";
 import { Customer } from "../models/Customer.model.js";
 import cloudinary from "../utils/cloudinary.js";
+import { Readable } from "stream";
 import fs from "fs"
 
 
@@ -20,6 +21,7 @@ export const createConsultation=asyncHandler(async(req,res)=>{
         astrologerId:req.user._id,
         customerId,
         title,
+        notes,
         consultationDate,
         duration,
         tags
@@ -30,9 +32,10 @@ export const createConsultation=asyncHandler(async(req,res)=>{
 })
 
 export const getConsultations=asyncHandler(async(req,res)=>{
+    const {customerId}=req.query
     const search=req.query.search || ""
     const query = {
-      astrologerId: req.user._is,
+      astrologerId: req.user._id,
     };
     if(search){
         query.$or=[
@@ -49,6 +52,9 @@ export const getConsultations=asyncHandler(async(req,res)=>{
                 }
             }
         ]
+    }
+    if(customerId){
+      query.customerId=customerId
     }
     const consultations=await Consultation.find(query).populate("customerId","name phone").sort({createdAt:-1})
     return res
@@ -116,11 +122,19 @@ export const uploadRecording=asyncHandler(async(req,res)=>{
       throw new ApiError(400, "Recording file required");
     }
 
-    const result=await cloudinary.uploader.upload(req.file.buffer,{
-        resource_type:"video",
-        folder:"consulation-recordings"
-    })
-    fs.unlinkSync(req.file.path)
+    const result = await new Promise((resolve, reject) => {
+      const stream = cloudinary.uploader.upload_stream(
+        {
+          resource_type: "video",
+          folder: "consultation-recordings",
+        },
+        (error, result) => {
+          if (error) reject(error);
+          else resolve(result);
+        },
+      );
+      Readable.from(req.file.buffer).pipe(stream);
+    });
     consultation.recordingUrl=result.secure_url
     consultation.recordingPublicId=result.public_id
     await consultation.save()

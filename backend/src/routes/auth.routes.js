@@ -8,7 +8,7 @@ const router=Router()
 
 router.post("/register",validate(registerSchema),registerUser)
 router.post("/login",validate(loginSchema),loginUser)
-router.post("/logout",loginUser)
+router.post("/logout",logoutUser)
 router.get("/me",verifyJWT,getCurrentUser)
 
 export default router
