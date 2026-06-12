@@ -2,9 +2,21 @@
 
 A CRM-style web application that helps astrologers manage customers, consultations, and consultation recordings from a centralized dashboard.
 
-Live Demo: <frontend-url>
+Live Demo: https://consultation-recording-manager-pearl.vercel.app/
 
-Backend API: <backend-url>
+Backend API: https://consultation-recording-manager-lmyh.onrender.com/
+
+---
+
+## Demo Credentials
+
+Use the following account to explore the application:
+
+Email: demo@gmail.com
+
+Password: demo@123
+
+The demo account already contains sample customers, consultations, and recordings so reviewers can immediately evaluate the application's workflow without creating data manually.
 
 ---
 
