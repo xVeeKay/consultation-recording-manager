@@ -7,13 +7,13 @@ import Dashboard from './pages/Dashboard.jsx';
 import Customers from './pages/Customers.jsx';
 import Consultations from './pages/Consultations.jsx';
 import Recordings from './pages/Recordings.jsx';
+import { Navigate } from 'react-router-dom';
 // import reactLogo from './assets/react.svg'
 // import viteLogo from './assets/vite.svg'
 // import heroImg from './assets/hero.png'
 // import './App.css'
 
 function App() {
-
   return (
     <BrowserRouter>
       <Routes>
