@@ -5,10 +5,11 @@ import jwt from "jsonwebtoken"
 import asyncHandler from "../utils/asyncHandler.js";
 
 
-const cookieOptions={
-    httpOnly:true,
-    sameSite:"lax"
-}
+const cookieOptions = {
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",
+};
 
 
 export const registerUser = asyncHandler(async (req, res) => {
