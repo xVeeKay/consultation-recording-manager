@@ -95,6 +95,8 @@ The demo account already contains sample customers, consultations, and recording
         ├── App.tsx
         └── main.tsx
 
+```text
+
 ---
 
 ## Authentication Flow
