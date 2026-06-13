@@ -69,6 +69,8 @@ The demo account already contains sample customers, consultations, and recording
 
 ## Project Structure
 
+## Project Structure
+
 .
 ├── backend/
 │   └── src/
