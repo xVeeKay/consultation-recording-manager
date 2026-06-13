@@ -24,9 +24,11 @@ The demo account already contains sample customers, consultations, and recording
 
 - JWT Authentication
 - Customer Management
+- Recording Management
 - Consultation Management
 - Audio Recording Uploads
 - Cloudinary Integration
+- Smooth Skeleton Loading States
 - Dashboard Analytics
 - Secure Route Protection
 - Request Validation using Zod
@@ -54,6 +56,7 @@ The demo account already contains sample customers, consultations, and recording
 - Multer
 - Cloudinary
 - Zod
+- Bcrypt
 
 ### Deployment
 
@@ -66,20 +69,26 @@ The demo account already contains sample customers, consultations, and recording
 
 ## Project Structure
 
-backend/
-├── controllers
-├── middlewares
-├── models
-├── routes
-├── validators
-├── utils
-
-frontend/
-├── pages
-├── components
-├── layouts
-├── api
-├── hooks
+.
+├── backend/
+│   └── src/
+│       ├── controllers/
+│       ├── middlewares/
+│       ├── models/
+│       ├── routes/
+│       ├── validators/
+│       └── utils/
+│
+└── frontend/
+    └── src/
+        ├── api/
+        ├── components/
+        ├── context/
+        ├── hooks/
+        ├── lib/
+        ├── pages/
+        ├── App.tsx
+        └── main.tsx
 
 ---
 
@@ -177,7 +186,5 @@ Since the assignment focuses on engineering quality rather than enterprise autho
 - Appointment scheduling
 - Recording transcription
 - AI-generated consultation summaries
-- Consultation search using transcripts
-- Reminder notifications
 - Recording streaming support
 - Advanced analytics dashboard
