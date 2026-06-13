@@ -67,35 +67,38 @@ The demo account already contains sample customers, consultations, and recording
 
 ---
 
-## Project Structure
-
-## Project Structure
-
-## Project Structure
-
 ```text
-.
-├── backend/
-│   └── src/
-│       ├── controllers/
-│       ├── middlewares/
-│       ├── models/
-│       ├── routes/
-│       ├── validators/
-│       └── utils/
+consultation-recording-manager/
 │
-└── frontend/
-    └── src/
-        ├── api/
-        ├── components/
-        ├── context/
-        ├── hooks/
-        ├── lib/
-        ├── pages/
-        ├── App.tsx
-        └── main.tsx
-
-```text
+├── backend/
+│   ├── src/
+│   │   ├── controllers/      # Business logic
+│   │   ├── middlewares/      # Auth, validation, error handling
+│   │   ├── models/           # Mongoose models
+│   │   ├── routes/           # API routes
+│   │   ├── validators/       # Zod schemas
+│   │   ├── utils/            # ApiError, ApiResponse, asyncHandler
+│   │   ├── app.js
+│   │   └── server.js
+│   │
+│   └── package.json
+│
+├── frontend/
+│   ├── src/
+│   │   ├── api/              # API layer
+│   │   ├── components/       # Reusable UI components
+│   │   ├── context/          # Auth context
+│   │   ├── hooks/            # Custom hooks
+│   │   ├── lib/              # Utilities
+│   │   ├── pages/            # Application pages
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
+│   └── package.json
+│
+├── README.md
+└── AI_USAGE.md
+```
 
 ---
 
